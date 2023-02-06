@@ -1,0 +1,24 @@
+org: serverlesslearner
+app: python-aws
+service: aws-python-project
+configValidationMode: error
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: python3.8
+  profile: phuongnh29-home
+  region: "us-east-1"
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - lambda:*
+          Resource:
+            - "*"
+
+functions:
+  hello:
+    handler: handler.hello
